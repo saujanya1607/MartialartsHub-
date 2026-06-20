@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   THEME SYSTEM — 6 arena themes × dark/light modes
+═══════════════════════════════════════════════════════════ */
+
+:root {
+  --transition-theme: background 0.6s ease, color 0.4s ease;
+}
+
+/* ── Theme 1: Ancient Mountain Colosseum (DEFAULT DARK) ── */
+[data-theme="ancient-colosseum"][data-mode="dark"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: rgba(22, 27, 34, 0.8);
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent: #d4a017;
+  --accent-glow: rgba(212, 160, 23, 0.4);
+  --accent-rgb: 212, 160, 23;
+  --card-border: rgba(212, 160, 23, 0.2);
+  --card-border-hover: rgba(212, 160, 23, 0.6);
+  --nav-bg: rgba(13, 17, 23, 0.85);
+  --hero-overlay: linear-gradient(to bottom, rgba(13,17,23,0.3), rgba(13,17,23,0.9));
+  --particle-color: rgba(212, 160, 23, 0.6);
+  --scrollbar-thumb: #d4a017;
+  --tag-bg: rgba(212,160,23,0.15);
+}
+
+[data-theme="ancient-colosseum"][data-mode="light"] {
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ede8dc;
+  --bg-card: rgba(255, 252, 245, 0.9);
+  --text-primary: #1c1915;
+  --text-secondary: #5c5248;
+  --accent: #8b5e0a;
+  --accent-glow: rgba(139, 94, 10, 0.3);
+  --accent-rgb: 139, 94, 10;
+  --card-border: rgba(139, 94, 10, 0.2);
+  --card-border-hover: rgba(139, 94, 10, 0.5);
+  --nav-bg: rgba(245, 240, 232, 0.9);
+  --hero-overlay: linear-gradient(to bottom, rgba(245,240,232,0.2), rgba(245,240,232,0.85));
+  --particle-color: rgba(139, 94, 10, 0.4);
+  --scrollbar-thumb: #8b5e0a;
+  --tag-bg: rgba(139,94,10,0.1);
+}
+
+/* ── Theme 2: Frozen Sanctuary ── */
+[data-theme="frozen-sanctuary"][data-mode="dark"] {
+  --bg-primary: #060d1a;
+  --bg-secondary: #0a1628;
+  --bg-card: rgba(10, 22, 40, 0.85);
+  --text-primary: #dff0ff;
+  --text-secondary: #7fa8cc;
+  --accent: #5bc8f5;
+  --accent-glow: rgba(91, 200, 245, 0.4);
+  --accent-rgb: 91, 200, 245;
+  --card-border: rgba(91, 200, 245, 0.2);
+  --card-border-hover: rgba(91, 200, 245, 0.6);
+  --nav-bg: rgba(6, 13, 26, 0.85);
+  --hero-overlay: linear-gradient(to bottom, rgba(6,13,26,0.3), rgba(6,13,26,0.9));
+  --particle-color: rgba(91, 200, 245, 0.5);
+  --scrollbar-thumb: #5bc8f5;
+  --tag-bg: rgba(91,200,245,0.12);
+}
+
+[data-theme="frozen-sanctuary"][data-mode="light"] {
+  --bg-primary: #eaf5fb;
+  --bg-secondary: #d5ecf7;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #08253d;
+  --text-secondary: #3a6a8a;
+  --accent: #0078b4;
+  --accent-glow: rgba(0, 120, 180, 0.25);
+  --accent-rgb: 0, 120, 180;
+  --card-border: rgba(0, 120, 180, 0.2);
+  --card-border-hover: rgba(0, 120, 180, 0.5);
+  --nav-bg: rgba(234, 245, 251, 0.92);
+  --hero-overlay: linear-gradient(to bottom, rgba(234,245,251,0.3), rgba(234,245,251,0.88));
+  --particle-color: rgba(0, 120, 180, 0.3);
+  --scrollbar-thumb: #0078b4;
+  --tag-bg: rgba(0,120,180,0.1);
+}
+
+/* ── Theme 3: Astral World Tree ── */
+[data-theme="astral-tree"][data-mode="dark"] {
+  --bg-primary: #080612;
+  --bg-secondary: #10091e;
+  --bg-card: rgba(16, 9, 30, 0.85);
+  --text-primary: #f0e8ff;
+  --text-secondary: #9d80c8;
+  --accent: #b87fff;
+  --accent-glow: rgba(184, 127, 255, 0.45);
+  --accent-rgb: 184, 127, 255;
+  --card-border: rgba(184, 127, 255, 0.2);
+  --card-border-hover: rgba(184, 127, 255, 0.6);
+  --nav-bg: rgba(8, 6, 18, 0.88);
+  --hero-overlay: linear-gradient(to bottom, rgba(8,6,18,0.3), rgba(8,6,18,0.9));
+  --particle-color: rgba(184, 127, 255, 0.5);
+  --scrollbar-thumb: #b87fff;
+  --tag-bg: rgba(184,127,255,0.12);
+}
+
+[data-theme="astral-tree"][data-mode="light"] {
+  --bg-primary: #f5f0ff;
+  --bg-secondary: #ede5ff;
+  --bg-card: rgba(255, 253, 255, 0.92);
+  --text-primary: #1e0a3c;
+  --text-secondary: #6040a0;
+  --accent: #7030d0;
+  --accent-glow: rgba(112, 48, 208, 0.25);
+  --accent-rgb: 112, 48, 208;
+  --card-border: rgba(112, 48, 208, 0.2);
+  --card-border-hover: rgba(112, 48, 208, 0.5);
+  --nav-bg: rgba(245, 240, 255, 0.92);
+  --hero-overlay: linear-gradient(to bottom, rgba(245,240,255,0.2), rgba(245,240,255,0.88));
+  --particle-color: rgba(112, 48, 208, 0.3);
+  --scrollbar-thumb: #7030d0;
+  --tag-bg: rgba(112,48,208,0.1);
+}
+
+/* ── Theme 4: Sacred Peak Ring ── */
+[data-theme="sacred-peak"][data-mode="dark"] {
+  --bg-primary: #0a0d1a;
+  --bg-secondary: #111428;
+  --bg-card: rgba(17, 20, 40, 0.85);
+  --text-primary: #fffbf0;
+  --text-secondary: #a09060;
+  --accent: #ffcf3d;
+  --accent-glow: rgba(255, 207, 61, 0.4);
+  --accent-rgb: 255, 207, 61;
+  --card-border: rgba(255, 207, 61, 0.2);
+  --card-border-hover: rgba(255, 207, 61, 0.6);
+  --nav-bg: rgba(10, 13, 26, 0.88);
+  --hero-overlay: linear-gradient(to bottom, rgba(10,13,26,0.3), rgba(10,13,26,0.9));
+  --particle-color: rgba(255, 207, 61, 0.5);
+  --scrollbar-thumb: #ffcf3d;
+  --tag-bg: rgba(255,207,61,0.12);
+}
+
+[data-theme="sacred-peak"][data-mode="light"] {
+  --bg-primary: #f0f5e8;
+  --bg-secondary: #e5edd8;
+  --bg-card: rgba(255, 255, 250, 0.92);
+  --text-primary: #1a2010;
+  --text-secondary: #4a6030;
+  --accent: #2e7d18;
+  --accent-glow: rgba(46, 125, 24, 0.25);
+  --accent-rgb: 46, 125, 24;
+  --card-border: rgba(46, 125, 24, 0.2);
+  --card-border-hover: rgba(46, 125, 24, 0.5);
+  --nav-bg: rgba(240, 245, 232, 0.92);
+  --hero-overlay: linear-gradient(to bottom, rgba(240,245,232,0.2), rgba(240,245,232,0.88));
+  --particle-color: rgba(46, 125, 24, 0.3);
+  --scrollbar-thumb: #2e7d18;
+  --tag-bg: rgba(46,125,24,0.1);
+}
+
+/* ── Theme 5: Cybernetic Arena ── */
+[data-theme="cybernetic"][data-mode="dark"] {
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c14;
+  --bg-card: rgba(12, 12, 20, 0.88);
+  --text-primary: #f0f0ff;
+  --text-secondary: #7070a8;
+  --accent: #00f0ff;
+  --accent-glow: rgba(0, 240, 255, 0.4);
+  --accent-rgb: 0, 240, 255;
+  --card-border: rgba(0, 240, 255, 0.2);
+  --card-border-hover: rgba(0, 240, 255, 0.6);
+  --nav-bg: rgba(5, 5, 8, 0.9);
+  --hero-overlay: linear-gradient(to bottom, rgba(5,5,8,0.4), rgba(5,5,8,0.92));
+  --particle-color: rgba(0, 240, 255, 0.5);
+  --scrollbar-thumb: #00f0ff;
+  --tag-bg: rgba(0,240,255,0.1);
+}
+
+[data-theme="cybernetic"][data-mode="light"] {
+  --bg-primary: #f0f0f8;
+  --bg-secondary: #e0e0f0;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --text-primary: #08083a;
+  --text-secondary: #404080;
+  --accent: #5500cc;
+  --accent-glow: rgba(85, 0, 204, 0.25);
+  --accent-rgb: 85, 0, 204;
+  --card-border: rgba(85, 0, 204, 0.2);
+  --card-border-hover: rgba(85, 0, 204, 0.5);
+  --nav-bg: rgba(240, 240, 248, 0.92);
+  --hero-overlay: linear-gradient(to bottom, rgba(240,240,248,0.2), rgba(240,240,248,0.88));
+  --particle-color: rgba(85, 0, 204, 0.3);
+  --scrollbar-thumb: #5500cc;
+  --tag-bg: rgba(85,0,204,0.1);
+}
+
+/* ── Theme 6: Gladiator Underground Pit ── */
+[data-theme="gladiator-pit"][data-mode="dark"] {
+  --bg-primary: #0a0704;
+  --bg-secondary: #150e07;
+  --bg-card: rgba(21, 14, 7, 0.88);
+  --text-primary: #f2e8d8;
+  --text-secondary: #907060;
+  --accent: #ff5e00;
+  --accent-glow: rgba(255, 94, 0, 0.4);
+  --accent-rgb: 255, 94, 0;
+  --card-border: rgba(255, 94, 0, 0.2);
+  --card-border-hover: rgba(255, 94, 0, 0.6);
+  --nav-bg: rgba(10, 7, 4, 0.9);
+  --hero-overlay: linear-gradient(to bottom, rgba(10,7,4,0.4), rgba(10,7,4,0.92));
+  --particle-color: rgba(255, 94, 0, 0.5);
+  --scrollbar-thumb: #ff5e00;
+  --tag-bg: rgba(255,94,0,0.12);
+}
+
+[data-theme="gladiator-pit"][data-mode="light"] {
+  --bg-primary: #f5ede0;
+  --bg-secondary: #ede0cc;
+  --bg-card: rgba(255, 252, 248, 0.92);
+  --text-primary: #2a1a08;
+  --text-secondary: #7a5030;
+  --accent: #c04000;
+  --accent-glow: rgba(192, 64, 0, 0.25);
+  --accent-rgb: 192, 64, 0;
+  --card-border: rgba(192, 64, 0, 0.2);
+  --card-border-hover: rgba(192, 64, 0, 0.5);
+  --nav-bg: rgba(245, 237, 224, 0.92);
+  --hero-overlay: linear-gradient(to bottom, rgba(245,237,224,0.2), rgba(245,237,224,0.88));
+  --particle-color: rgba(192, 64, 0, 0.3);
+  --scrollbar-thumb: #c04000;
+  --tag-bg: rgba(192,64,0,0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BASE STYLES
+═══════════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition-theme);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════════════
+   GLASSMORPHISM SYSTEM
+═══════════════════════════════════════════════════════════ */
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.glass-modal {
+  background: var(--bg-card);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid var(--card-border);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════════════════ */
+
+.font-display { font-family: 'Cinzel', serif; }
+.text-accent { color: var(--accent); }
+.text-secondary-custom { color: var(--text-secondary); }
+
+/* ═══════════════════════════════════════════════════════════
+   ACCENT ELEMENTS
+═══════════════════════════════════════════════════════════ */
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.9), rgba(var(--accent-rgb), 0.7));
+  color: var(--bg-primary);
+  border: 1px solid var(--accent);
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px var(--accent-glow), 0 0 50px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(var(--accent-rgb), 0.15);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.tag {
+  background: var(--tag-bg);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GLOW EFFECTS
+═══════════════════════════════════════════════════════════ */
+
+.glow-accent {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow);
+}
+
+.border-accent {
+  border-color: var(--accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════════════════ */
+
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+  z-index: 1;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+/* Animated orb */
+.ai-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.8), rgba(var(--accent-rgb), 0.2));
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow);
+  animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.ai-orb:hover { transform: scale(1.15); }
+
+/* Particle system */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  background: var(--particle-color);
+  animation: particle linear infinite;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD STYLES
+═══════════════════════════════════════════════════════════ */
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 20px var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUT STYLES
+═══════════════════════════════════════════════════════════ */
+
+.input-custom {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+
+.input-custom::placeholder { color: var(--text-secondary); }
+
+.input-custom:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════════════════ */
+
+.divider-accent {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 2rem 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAP STYLES
+═══════════════════════════════════════════════════════════ */
+
+.country-pin {
+  cursor: pointer;
+  fill: var(--accent);
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.country-pin:hover {
+  fill: white;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+  transform: scale(1.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHAT STYLES
+═══════════════════════════════════════════════════════════ */
+
+.chat-bubble-user {
+  background: rgba(var(--accent-rgb), 0.2);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 16px 16px 4px 16px;
+}
+
+.chat-bubble-ai {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px 16px 16px 4px;
+}
+
+/* Typing indicator */
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════════════════════════════ */
+
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.7), var(--accent));
+  border-radius: 3px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+}
